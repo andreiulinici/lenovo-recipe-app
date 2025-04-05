@@ -1,0 +1,23 @@
+<div class="recipe-card">
+  <div class="image-container">
+    <img [src]="recipe.image" [alt]="recipe.name" />
+  </div>
+
+  <div class="content">
+    <h3>{{ recipe.name }}</h3>
+
+    <div class="categories">
+      @for (category of recipe.tags.slice(); track $index) {
+      <span class="category-badge">{{ category }}</span>
+      }
+    </div>
+
+    <div *ngIf="recipe.prepTimeMinutes">
+      <span style="font-size: 24px">
+        <!-- ⏱️ -->
+        ⌛
+      </span>
+      <span>{{ recipe.cookTimeMinutes + recipe.prepTimeMinutes }} mins</span>
+    </div>
+  </div>
+</div>

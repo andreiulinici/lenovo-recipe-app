@@ -1,0 +1,16 @@
+<main class="home-container">
+  <h1>Delicious Recipes</h1>
+
+  <section>
+    <h2>Recipes</h2>
+    <div class="recipe-grid">
+      <app-recipe-card [recipe]="recipes[0]"></app-recipe-card>
+      <app-recipe-card [recipe]="recipes[0]"></app-recipe-card>
+      <app-recipe-card [recipe]="recipes[0]"></app-recipe-card>
+
+      <!-- @for (recipe of recipes; track recipe.id) {
+      <app-recipe-card [recipe]="recipe"></app-recipe-card>
+      } -->
+    </div>
+  </section>
+</main>

@@ -1,1 +1,26 @@
-<p>recipe-form works!</p>
+<h1>Add recipe</h1>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="name" placeholder="Enter a cool name" />
+  <input
+    type="test"
+    formControlName="image"
+    placeholder="Image URL"
+    value="https://cdn.dummyjson.com/recipe-images/1.webp"
+  />
+  <input type="text" formControlName="tags" placeholder="Tags" />
+  <input
+    type="number"
+    formControlName="prepTimeMinutes"
+    placeholder="Prep time"
+    value="10"
+  />
+  <input
+    type="number"
+    formControlName="cookTimeMinutes"
+    placeholder="Cook time"
+    value="10"
+  />
+
+  <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>

@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Recipe } from '../models/recipe.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
-  recipes = [
+  recipes: Recipe[] = [
     {
       id: '1',
       name: 'Classic Margherita Pizza',
@@ -18,8 +18,15 @@ export class RecipeService {
     },
   ];
 
+  // Subject is basically an EventEmitter. It doesn't have an initial value, and doesn’t 'hold' the value. It emits it, then it's done.
+  // private readonly recipes$ = new Subject<Recipe[]>();
+
+  // BehaviourSubject emits an initial value.
+  // private readonly recipes$ = new BehaviorSubject<Recipe[]>([]);
+
   constructor(private httpClient: HttpClient) {}
 
+  // Observable is the general concept, two special types of observables are Subject and BehaviorSubject
   getRecipes(): Observable<Recipe[]> {
     return this.httpClient.get<Recipe[]>('https://dummyjson.com/recipes');
   }

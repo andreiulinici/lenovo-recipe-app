@@ -1,6 +1,10 @@
 <div class="recipe-card">
   <div class="image-container">
-    <img [src]="recipe.image" [alt]="recipe.name" />
+    <img
+      [src]="recipe.image"
+      [alt]="recipe.name"
+      (click)="clickedImage(recipe.image)"
+    />
   </div>
 
   <div class="content">
@@ -8,7 +12,11 @@
 
     <div class="categories">
       @for (category of recipe.tags.slice(); track $index) {
-      <span class="category-badge">{{ category }}</span>
+      <span
+        class="category-badge"
+        [ngClass]="{ favorite: category === 'Pizza' }"
+        >{{ category }}</span
+      >
       }
     </div>
 

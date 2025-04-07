@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+// Uses Jasmine Testing Framework and Karma test runner
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
